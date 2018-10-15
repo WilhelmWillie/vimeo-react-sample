@@ -28,13 +28,13 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0,0,0,0.25);
+    background: rgba(0,0,0,0.4);
   }
 }
 
 .carousel-current {
   display: flex;
-  flex-basis: 80%;
+  flex-basis: 90%;
   align-items: center;
   justify-content: space-between;
   z-index: 50;
@@ -47,33 +47,46 @@
   align-items: flex-start;
 
   .carousel-item-img {
-    flex-basis: 300px;
-    width: 500px;
+    flex-basis: 500px;
     height: 400px;
     overflow: hidden;
+    flex-shrink: 1;
+    -webkit-mask-image: linear-gradient(to top, transparent 15%, black 50%);
+    mask-image: linear-gradient(to top, transparent 15%, black 50%);
 
     img {
       width: 100%;
-      -webkit-mask-image: linear-gradient(to top, transparent 15%, black 50%);
-      mask-image: linear-gradient(to top, transparent 15%, black 50%);
+
     }
   }
 
   .carousel-item-details {
     padding-left: 40px;
-    flex-grow: 1;
+    font-weight: 200;
+    letter-spacing: 0.1em;
+    flex-basis: 100%;
+
+    h1 {
+      font-weight: 400;
+    }
   }
 
   .carousel-item-links {
     margin-top: 2em;
 
     .carousel-item-link {
-      padding: 15px;
+      padding: 10px 15px;
       background: #1ab7ea;
       border-radius: 0.25em;
       color: #ffffff;
       text-decoration: none;
       margin-right: 1em;
+      font-weight: 500;
+
+      &.carousel-item-link_outline {
+        border: 1px solid #ffffff;
+        background: transparent;
+      }
     }
   }
 }
@@ -81,5 +94,10 @@
 .carousel-change_slide {
   font-size: 2em;
   cursor: pointer;
-  color: rgba(0,0,0,0.5);
+  color: rgba(255,255,255,0.5);
+  transition: 0.1s all;
+
+  &:hover {
+    color: rgba(168,201,255,0.7);
+  }
 }

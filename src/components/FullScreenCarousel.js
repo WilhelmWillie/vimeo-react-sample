@@ -45,6 +45,7 @@ class FullScreenCarousel extends Component {
         image={currentItemData.image}
         description={currentItemData.description}
         buyNowLink={currentItemData.buyNowLink}
+        buyNowColor={currentItemData.buyNowColor}
         trailerLink={currentItemData.trailerLink}
       />
     )
@@ -53,7 +54,7 @@ class FullScreenCarousel extends Component {
       <div className='carousel'>
         <img src={currentItemData.image} className='carousel-blurred_bg' />
         <div className='carousel-black_overlay' />
-        
+
         <div className='carousel-current'>
           <div onClick={this.prevIndex} className='carousel-change_slide'>
             <i className='fas fa-chevron-left'></i>
