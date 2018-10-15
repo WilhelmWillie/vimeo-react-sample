@@ -21,6 +21,7 @@
     -webkit-filter: blur(20px);
     filter: blur(20px);
     z-index: 20;
+    transition: 0.1s all;
 
     &.carousel-blurred_bg_prev {
       left: -100vw;

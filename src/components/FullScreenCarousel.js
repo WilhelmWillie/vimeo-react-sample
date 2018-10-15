@@ -66,6 +66,18 @@ class FullScreenCarousel extends Component {
       )
     }
 
+    const backgrounds = this.props.data.map((item, index) => {
+      if (index === this.state.currentIndex - 1) {
+        return (<img src={item.image} key={index} className='carousel-blurred_bg carousel-blurred_bg_prev' />)
+      } else if (index === this.state.currentIndex) {
+        return (<img src={item.image} key={index} className='carousel-blurred_bg' />)
+      } else if (index === this.state.currentIndex + 1){
+        return (<img src={item.image} key={index} className='carousel-blurred_bg carousel-blurred_bg_next' />)
+      } else {
+        return null
+      }
+    })
+
     return (
       <div className='carousel'>
         <div className='carousel-black_overlay' />
@@ -75,20 +87,7 @@ class FullScreenCarousel extends Component {
             <i className='fas fa-chevron-left'></i>
           </div>
 
-          {
-            (prevItem !== null) ? (
-              <img src={prevItemData.image} className='carousel-blurred_bg carousel-blurred_bg_prev' />
-            ) : (null)
-          }
-
-          <img src={currentItemData.image} className='carousel-blurred_bg' />
-
-          {
-            (nextItem !== null) ? (
-              <img src={nextItemData.image} className='carousel-blurred_bg carousel-blurred_bg_next' />
-            ) : (null)
-          }
-
+          {backgrounds}
           {currentItem}
 
           <div onClick={this.nextIndex} className='carousel-change_slide'>
