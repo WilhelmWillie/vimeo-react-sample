@@ -24,20 +24,6 @@ class FullScreenCarousel extends Component {
   }
 
   render() {
-    // const carouselItems = this.props.data.map((item, index) => (
-    //   (this.state.currentIndex == index) ? (
-    //     <CarouselItem
-    //       title={item.title}
-    //       image={item.image}
-    //       description={item.description}
-    //       buyNowLink={item.buyNowLink}
-    //       trailerLink={item.trailerLink}
-    //     />
-    //   ) : (
-    //     null
-    //   )
-    // ))
-
     const currentItemData = this.props.data[this.state.currentIndex]
     const currentItem = (
       <CarouselItem
@@ -50,15 +36,58 @@ class FullScreenCarousel extends Component {
       />
     )
 
+    let prevItemData = null, nextItemData = null, prevItem = null, nextItem = null
+
+    if (this.state.currentIndex - 1 >= 0) {
+      prevItemData = this.props.data[this.state.currentIndex - 1]
+      prevItem = (
+        <CarouselItem
+          title={prevItemData.title}
+          image={prevItemData.image}
+          description={prevItemData.description}
+          buyNowLink={prevItemData.buyNowLink}
+          buyNowColor={prevItemData.buyNowColor}
+          trailerLink={prevItemData.trailerLink}
+        />
+      )
+    }
+
+    if (this.state.currentIndex + 1 < this.props.data.length) {
+      nextItemData = this.props.data[this.state.currentIndex + 1]
+      nextItem = (
+        <CarouselItem
+          title={nextItemData.title}
+          image={nextItemData.image}
+          description={nextItemData.description}
+          buyNowLink={nextItemData.buyNowLink}
+          buyNowColor={nextItemData.buyNowColor}
+          trailerLink={nextItemData.trailerLink}
+        />
+      )
+    }
+
     return (
       <div className='carousel'>
-        <img src={currentItemData.image} className='carousel-blurred_bg' />
         <div className='carousel-black_overlay' />
 
-        <div className='carousel-current'>
+        <div className='carousel-container'>
           <div onClick={this.prevIndex} className='carousel-change_slide'>
             <i className='fas fa-chevron-left'></i>
           </div>
+
+          {
+            (prevItem !== null) ? (
+              <img src={prevItemData.image} className='carousel-blurred_bg carousel-blurred_bg_prev' />
+            ) : (null)
+          }
+
+          <img src={currentItemData.image} className='carousel-blurred_bg' />
+
+          {
+            (nextItem !== null) ? (
+              <img src={nextItemData.image} className='carousel-blurred_bg carousel-blurred_bg_next' />
+            ) : (null)
+          }
 
           {currentItem}
 

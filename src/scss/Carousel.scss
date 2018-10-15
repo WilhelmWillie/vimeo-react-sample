@@ -20,6 +20,15 @@
     object-fit: cover;
     -webkit-filter: blur(20px);
     filter: blur(20px);
+    z-index: 20;
+
+    &.carousel-blurred_bg_prev {
+      left: -100vw;
+    }
+
+    &.carousel-blurred_bg_next {
+      left: 100vw;
+    }
   }
 
   .carousel-black_overlay {
@@ -29,15 +38,15 @@
     bottom: 0;
     left: 0;
     background: rgba(0,0,0,0.4);
+    z-index: 100;
   }
 }
 
-.carousel-current {
+.carousel-container {
   display: flex;
   flex-basis: 90%;
   align-items: center;
   justify-content: space-between;
-  z-index: 50;
 }
 
 .carousel-item {
@@ -45,6 +54,7 @@
   flex-basis: 80%;
   flex-direction: row;
   align-items: flex-start;
+  z-index: 150;
 
   .carousel-item-img {
     flex-basis: 500px;
@@ -96,6 +106,7 @@
   cursor: pointer;
   color: rgba(255,255,255,0.5);
   transition: 0.1s all;
+  z-index: 150;
 
   &:hover {
     color: rgba(168,201,255,0.7);
