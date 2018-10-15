@@ -1,0 +1,53 @@
+.landing-container {
+  padding-top: 7.5em;
+  text-align: center;
+  width: 100%;
+
+  // Styles for landing header & Vimeo logo
+  .landing-vimeo_logo {
+    width: 280px;
+  }
+
+  .landing-title {
+    color: #686868;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .landing-author_link {
+    color: #1ab7ea;
+    font-weight: 600;
+  }
+
+  // Links that lead to different aspects of the coding sample
+  .landing-links {
+    margin-top: 2em;
+
+    .landing-link {
+      background: #1ab7ea;
+      color: #ffffff;
+      padding: 0.5em 0.75em;
+      border-radius: 0.25em;
+      margin-left: 15px;
+      font-weight: 100;
+      display: inline-block;
+      font-size: 1.15em;
+      text-decoration: none;
+      transition: 0.15s all;
+      letter-spacing: 0.1em;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:hover {
+        background: darken(#1ab7ea, 15%);
+      }
+    }
+  }
+
+  @media screen and (max-width: 667px) {
+    padding-top: 3em;
+  }
+}
