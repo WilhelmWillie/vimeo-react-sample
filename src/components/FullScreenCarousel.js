@@ -8,7 +8,7 @@ class FullScreenCarousel extends Component {
   }
 
   prevIndex = () => {
-    if (this.state.currentIndex != 0) {
+    if (this.state.currentIndex !== 0) {
       this.setState({
         currentIndex: this.state.currentIndex - 1
       })
@@ -16,7 +16,7 @@ class FullScreenCarousel extends Component {
   }
 
   nextIndex = () => {
-    if (this.state.currentIndex != this.props.data.length - 1) {
+    if (this.state.currentIndex !== this.props.data.length - 1) {
       this.setState({
         currentIndex: this.state.currentIndex + 1
       })
@@ -24,48 +24,6 @@ class FullScreenCarousel extends Component {
   }
 
   render() {
-    const currentItemData = this.props.data[this.state.currentIndex]
-    const currentItem = (
-      <CarouselItem
-        title={currentItemData.title}
-        image={currentItemData.image}
-        description={currentItemData.description}
-        buyNowLink={currentItemData.buyNowLink}
-        buyNowColor={currentItemData.buyNowColor}
-        trailerLink={currentItemData.trailerLink}
-      />
-    )
-
-    let prevItemData = null, nextItemData = null, prevItem = null, nextItem = null
-
-    if (this.state.currentIndex - 1 >= 0) {
-      prevItemData = this.props.data[this.state.currentIndex - 1]
-      prevItem = (
-        <CarouselItem
-          title={prevItemData.title}
-          image={prevItemData.image}
-          description={prevItemData.description}
-          buyNowLink={prevItemData.buyNowLink}
-          buyNowColor={prevItemData.buyNowColor}
-          trailerLink={prevItemData.trailerLink}
-        />
-      )
-    }
-
-    if (this.state.currentIndex + 1 < this.props.data.length) {
-      nextItemData = this.props.data[this.state.currentIndex + 1]
-      nextItem = (
-        <CarouselItem
-          title={nextItemData.title}
-          image={nextItemData.image}
-          description={nextItemData.description}
-          buyNowLink={nextItemData.buyNowLink}
-          buyNowColor={nextItemData.buyNowColor}
-          trailerLink={nextItemData.trailerLink}
-        />
-      )
-    }
-
     const backgrounds = this.props.data.map((item, index) => {
       if (index === this.state.currentIndex - 1) {
         return (<img src={item.image} key={index} className='carousel-blurred_bg carousel-blurred_bg_prev' />)
@@ -78,8 +36,31 @@ class FullScreenCarousel extends Component {
       }
     })
 
+    const items = this.props.data.map((item, index) => {
+      const isPrev = (index === this.state.currentIndex - 1)
+      const isNext = (index === this.state.currentIndex + 1)
+
+      console.log('index: ' + index + ', current index: ' + this.state.currentIndex + ' || ' + isPrev + ' ' + isNext)
+      if (isPrev || isNext || index === this.state.currentIndex) {
+        return (<CarouselItem
+          title={item.title}
+          image={item.image}
+          description={item.description}
+          buyNowLink={item.buyNowLink}
+          buyNowColor={item.buyNowColor}
+          trailerLink={item.trailerLink}
+          isPrev={isPrev}
+          isNext={isNext}
+        />)
+      } else {
+        return null
+      }
+    })
+
     return (
       <div className='carousel'>
+        {backgrounds}
+
         <div className='carousel-black_overlay' />
 
         <div className='carousel-container'>
@@ -87,8 +68,9 @@ class FullScreenCarousel extends Component {
             <i className='fas fa-chevron-left'></i>
           </div>
 
-          {backgrounds}
-          {currentItem}
+          <div className='carousel-current'>
+            {items}
+          </div>
 
           <div onClick={this.nextIndex} className='carousel-change_slide'>
             <i className='fas fa-chevron-right'></i>

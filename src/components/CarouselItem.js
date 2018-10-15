@@ -3,8 +3,18 @@ import React, { Component } from 'react';
 class CarouselItem extends Component {
 
   render() {
+    let itemClassName = 'carousel-item'
+
+    if (this.props.isPrev) {
+      itemClassName += ' carousel-item_prev'
+    }
+
+    if (this.props.isNext) {
+      itemClassName += ' carousel-item_next'
+    }
+
     return (
-      <div className='carousel-item'>
+      <div className={itemClassName}>
         <div className='carousel-item-img'>
           <img src={this.props.image} />
         </div>
@@ -19,7 +29,7 @@ class CarouselItem extends Component {
               className='carousel-item-link'
               style={{backgroundColor: this.props.buyNowColor}}
             >
-              <i class='fas fa-play-circle'></i> Buy Now
+              <i className='fas fa-play-circle'></i> Buy Now
             </a>
             <a href={this.props.trailerLink} className='carousel-item-link carousel-item-link_outline'>Watch Trailer</a>
           </div>
