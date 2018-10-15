@@ -51,10 +51,19 @@ class FullScreenCarousel extends Component {
 
     return (
       <div className='carousel'>
+        <img src={currentItemData.image} className='carousel-blurred_bg' />
+        <div className='carousel-black_overlay' />
+        
         <div className='carousel-current'>
-          <a onClick={this.prevIndex}>&lt;</a>
+          <div onClick={this.prevIndex} className='carousel-change_slide'>
+            <i className='fas fa-chevron-left'></i>
+          </div>
+
           {currentItem}
-          <a onClick={this.nextIndex}>&gt;</a>
+
+          <div onClick={this.nextIndex} className='carousel-change_slide'>
+            <i className='fas fa-chevron-right'></i>
+          </div>
         </div>
       </div>
     )

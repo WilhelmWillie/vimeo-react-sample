@@ -13,9 +13,9 @@ class CarouselItem extends Component {
           <h1>{this.props.title}</h1>
           <p>{this.props.description}</p>
 
-          <div className='carousel-item-details'>
-            <a href={this.props.buyNowLink}>Buy Now</a>
-            <a href={this.props.trailerLink}>Watch Trailer</a>
+          <div className='carousel-item-links'>
+            <a href={this.props.buyNowLink} className='carousel-item-link'>Buy Now</a>
+            <a href={this.props.trailerLink} className='carousel-item-link'>Watch Trailer</a>
           </div>
         </div>
       </div>
