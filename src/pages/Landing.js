@@ -1,7 +1,8 @@
-import React from 'react';
+import React from 'react'
 
-import '../scss/Landing.scss';
+import '../scss/Landing.scss'
 
+// Simple presentational component for presenting the landing page
 const Landing = () => (
   <div className='landing-container'>
     <img src='./vimeo.png' className='landing-vimeo_logo' alt='Vimeo Logo'/>

@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
-import FullScreenCarousel from '../components/FullScreenCarousel';
+import FullScreenCarousel from '../components/FullScreenCarousel'
 
-import '../scss/Carousel.scss';
+import '../scss/Carousel.scss'
 
 // Could be replaced with an AJAX call to a backend API
 const carouselData = [
@@ -47,6 +47,7 @@ const carouselData = [
     trailerLink: '#'
   }
 ]
+
 const Carousel = () => (
   <FullScreenCarousel data={carouselData} />
 )

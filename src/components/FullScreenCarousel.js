@@ -3,10 +3,13 @@ import React, { Component } from 'react';
 import CarouselItem from './CarouselItem';
 
 class FullScreenCarousel extends Component {
+  // Keep track of current index in component's state
+  // Array of video data is passed in via props as `data`
   state = {
     currentIndex: 0
   }
 
+  // Set the index to the previous video. No wrapping (but could easily support wrapping)
   prevIndex = () => {
     if (this.state.currentIndex !== 0) {
       this.setState({
@@ -15,6 +18,7 @@ class FullScreenCarousel extends Component {
     }
   }
 
+  // Set the index to the next video. No wrapping (but could easily support wrapping)
   nextIndex = () => {
     if (this.state.currentIndex !== this.props.data.length - 1) {
       this.setState({
@@ -24,6 +28,7 @@ class FullScreenCarousel extends Component {
   }
 
   render() {
+    // Map through the data prop and only render a window of backgrounds (previous, current, next)
     const backgrounds = this.props.data.map((item, index) => {
       if (index === this.state.currentIndex - 1) {
         return (<img src={item.image} key={index} alt={item.title} className='carousel-blurred_bg carousel-blurred_bg_prev' />)
@@ -36,6 +41,7 @@ class FullScreenCarousel extends Component {
       }
     })
 
+    // Map through the data prop and only render a window of carousel items (previous, current, next)
     const items = this.props.data.map((item, index) => {
       const isPrev = (index === this.state.currentIndex - 1)
       const isNext = (index === this.state.currentIndex + 1)

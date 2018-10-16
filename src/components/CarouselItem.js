@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class CarouselItem extends Component {
 
   render() {
     let itemClassName = 'carousel-item'
 
-    if (this.props.isPrev) {
-      itemClassName += ' carousel-item_prev'
-    }
-
-    if (this.props.isNext) {
-      itemClassName += ' carousel-item_next'
-    }
+    if (this.props.isPrev) itemClassName += ' carousel-item_prev'
+    if (this.props.isNext) itemClassName += ' carousel-item_next'
 
     return (
       <div className={itemClassName}>
@@ -39,4 +34,4 @@ class CarouselItem extends Component {
   }
 }
 
-export default CarouselItem;
+export default CarouselItem

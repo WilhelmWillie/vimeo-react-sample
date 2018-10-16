@@ -1,11 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Landing from './pages/Landing';
-import Layout from './pages/Layout';
-import Carousel from './pages/Carousel';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import './scss/App.scss';
+// Import the necessary page components
+import Landing from './pages/Landing'
+import Layout from './pages/Layout'
+import Carousel from './pages/Carousel'
+
+import './scss/App.scss'
 
 const App = () => (
   <Router>
@@ -17,4 +19,4 @@ const App = () => (
   </Router>
 )
 
-export default App;
+export default App

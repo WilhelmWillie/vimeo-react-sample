@@ -1,5 +1,6 @@
 .landing-container {
   padding-top: 7.5em;
+  padding-bottom: 3em;
   text-align: center;
   width: 100%;
 
@@ -49,5 +50,6 @@
 
   @media screen and (max-width: 667px) {
     padding-top: 3em;
+    padding-bottom: 3em;
   }
 }
