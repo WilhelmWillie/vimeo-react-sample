@@ -2,6 +2,10 @@
 
 This repository contains the code for my responses to Vimeo's Front End Engineering Intern coding sample.
 
+![Layout](./docs/layout.gif)
+
+![Carousel](./docs/carousel.gif)
+
 ## Installation & Set up
 
 1. First, clone this repository onto your local system
