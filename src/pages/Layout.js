@@ -20,7 +20,7 @@ class Layout extends Component {
               </div>
 
               <div className='layout-col_half'>
-                <img src="/preview/monsoonIII.jpg" className='layout-vid_preview'/>
+                <img src='/preview/monsoonIII.jpg' className='layout-vid_preview' alt='MONSOON III'/>
               </div>
             </div>
           </div>
@@ -40,7 +40,7 @@ class Layout extends Component {
               </div>
 
               <div className='layout-col_half'>
-                <img src="/preview/beams.jpg"  className='layout-vid_preview'/>
+                <img src='/preview/beams.jpg'  className='layout-vid_preview' alt='BEAMS'/>
               </div>
             </div>
           </div>
@@ -60,7 +60,7 @@ class Layout extends Component {
               </div>
 
               <div className='layout-col_half'>
-                <img src="/preview/move2.jpg"  className='layout-vid_preview'/>
+                <img src='/preview/move2.jpg'  className='layout-vid_preview' alt='Move 2'/>
               </div>
             </div>
           </div>

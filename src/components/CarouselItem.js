@@ -16,7 +16,7 @@ class CarouselItem extends Component {
     return (
       <div className={itemClassName}>
         <div className='carousel-item-img'>
-          <img src={this.props.image} />
+          <img src={this.props.image} alt={this.props.title} />
         </div>
 
         <div className='carousel-item-details'>
