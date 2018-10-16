@@ -42,6 +42,7 @@ class FullScreenCarousel extends Component {
 
       if (isPrev || isNext || index === this.state.currentIndex) {
         return (<CarouselItem
+          key={item.title}
           title={item.title}
           image={item.image}
           description={item.description}
